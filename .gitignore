@@ -1,0 +1,4 @@
+virtualenv
+backend/petfinder/config.py
+*~
+*pyc

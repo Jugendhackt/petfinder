@@ -45,7 +45,7 @@ def create_user(request):
     pet = request.json['pet']
     token = _create_token()
     pet['token'] = token
-    #[token] = pet
+    #[token] = petbbox
     db.save(pet)
     return {'token': token}
     

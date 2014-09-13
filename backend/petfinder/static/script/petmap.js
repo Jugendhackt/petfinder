@@ -19,7 +19,7 @@ map.on('moveend', function(e) {
 function requestUpdatedPets(bounds) {
   $.ajax({
     type: 'GET',
-    url: 'http://localhost:6543/pets?bbox=' + bounds._southWest.lng + ',' + bounds._southWest.lat + ',' + bounds._northEast.lng + ',' + bounds._northEast.lat,
+    url: '/pets?bbox=' + bounds._southWest.lng + ',' + bounds._southWest.lat + ',' + bounds._northEast.lng + ',' + bounds._northEast.lat,
     success: function(result) {
       parseResponsePets(result)
     },

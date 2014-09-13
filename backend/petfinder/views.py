@@ -46,8 +46,9 @@ def create_user(request):
     token = _create_token()
     pet['token'] = token
     #[token] = petbbox
-    db.save(pet)
-    return {'token': token}
+    #import pdb; pdb.set_trace()
+    docid, docrevision = db.save(pet)
+    return {'token': token, 'id': docid}
     
     #return {'token': '%s-%s' % (user['name'], user['token'])}
 

@@ -56,9 +56,12 @@ function parseResponsePets(data) {
       onEachFeature: function (feature, layer) {
         console.log(feature)
 
-        layer.setIcon(L.icon({iconSize: [32,32],iconAnchor: [15,15],iconUrl: "images/animal.jpg"}))
+        layer.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + feature.properties.type  +".svg"}))
         //layer.bindPopup("<p><img width=100% src='" + feature.value.image + "'>" + feature.value.title + "<a href=https://ingress.com/intel?ll=" + feature.value.latE6/1E6 + "," + feature.value.lngE6/1E6 + "&z=17&pll=" + feature.value.latE6/1E6 + "," + feature.value.lngE6/1E6 +">Open Portal on Intel</a></p>");
-        popupsting = "<p>Name: " + feature.properties.name + "</p>"
+        popupsting = "<p>Name: " + feature.properties.name + "</p>";
+        if('type' in feature.properties){
+          popupsting += "<p>Tierart: " + feature.properties.type + "</p>"
+        }
         layer.bindPopup(popupsting)
         }
       })

@@ -56,8 +56,8 @@ def create_user(request):
 @pets.delete()
 def del_user(request):
     """Removes the user."""
-    docid = request.json['_id']
-    token = request.json['token']
+    docid = request.params['_id']
+    token = request.params['token']
     doc = db[docid]
     if doc['token'] == token:
         del doc

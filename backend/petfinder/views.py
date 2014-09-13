@@ -61,3 +61,5 @@ def del_user(request):
     if doc['token'] == token:
         del doc
     return {'Goodbye': docid} 
+
+

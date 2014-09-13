@@ -1,0 +1,13 @@
+-e hg+https://code.google.com/p/couchdb-python/@3dd3596eccd2bc64bef13e25a744167d8bc77b36#egg=CouchDB-dev
+PasteDeploy==1.5.2
+WebOb==1.4
+cornice==0.17
+geojson==1.0.7
+pyramid==1.5.1
+repoze.lru==0.6
+simplejson==3.6.3
+translationstring==1.1
+venusian==1.0
+waitress==0.8.9
+zope.deprecation==4.1.1
+zope.interface==4.1.1

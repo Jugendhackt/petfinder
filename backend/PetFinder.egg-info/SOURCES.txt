@@ -8,5 +8,4 @@ PetFinder.egg-info/not-zip-safe
 PetFinder.egg-info/requires.txt
 PetFinder.egg-info/top_level.txt
 petfinder/__init__.py
-petfinder/config.py
 petfinder/views.py

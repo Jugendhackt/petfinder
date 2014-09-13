@@ -1,0 +1,107 @@
+
+a, div, form {
+	font-family: Ubuntu;
+	border-radius: 5px;
+}
+
+.bs-example div {
+	background-image: url(triangular.png);
+	background-repeat: repeat;
+}
+
+#main_image {
+	background: #fff;
+	margin-bottom: 3em;
+	
+}
+
+#information_div	{
+	height: 30em;
+	margin-bottom: 10em;	
+	width: auto;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+	background-image: url(triangular.png);
+	background-repeat: repeat;
+}
+
+#map_div {
+	height: 60em;
+	margin-bottom: 3em;	
+	width: auto;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+	padding-top: 3em;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	background-image: url(triangular.png);
+	background-repeat: repeat;	
+	}
+
+#map_div input {
+	border-radius: 10px;
+}
+
+#nopriority {
+	text-align: center;
+	font-family: Ubuntu;		
+	font-size: 4em;
+}
+
+.circle {
+	border-radius: 20px;
+	height: 2em;
+	width: 30%;
+	margin-left: 10em;
+	margin-right: auto;
+	margin-bottom: 2.5em;
+	background: #fff;
+}
+
+
+
+.regtext {
+	font-family: Ubuntu;
+	margin-left: 7.5%;
+	margin-bottom: 0.6em;
+	color: #777;
+	font-size: 1.9em;
+	
+}
+
+#dropdownmenu a {
+	background: #fff;
+}
+
+#dropdownmenu {
+	margin-left: 45%;
+}
+
+#test {
+	background: #a9a9a9;
+	border-color:  #929292;
+	font-family: Ubuntu;
+	font-size: 1.5em;
+}
+
+#myCarousel {
+	width: auto;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+	overflow: hidden;	
+	height: auto;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	
+}
+
+.pics {
+	width: 100%;
+}
+
+#mappi {
+	position: absolute;
+	margin-left: 50%;
+	margin-right: auto;
+	margin-top: -31em;
+}

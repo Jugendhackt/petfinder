@@ -68,6 +68,12 @@ function parseResponsePets(data) {
         if('type' in feature.properties){
           popupsting += "<p>Tierart: " + feature.properties.type + "</p>"
         }
+        if('age' in feature.properties){
+          popupsting += "<p>Alter: " + feature.properties.age + "</p>"
+        }
+        if('attributes' in feature.properties){
+          popupsting += "<p>Besondere Eigenschaften: " + feature.properties.attributes + "</p>"
+        }
         layer.bindPopup(popupsting)
         }
       })

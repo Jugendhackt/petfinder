@@ -12,6 +12,7 @@ var marker;
 var startPosition = new L.LatLng(52.5306525,13.4135768);
 map.setView(startPosition, 15)
 .addLayer(tileLayer);
+/*
 map.on('click', function(e) {        
     var clickLoc= e.latlng;
     data['lastseen'] = []
@@ -26,6 +27,7 @@ map.on('click', function(e) {
         marker.setLatLng(clickLoc).update()
     }
     });
+
 function register(){
     data['name'] = document.getElementById("aniname").value
     data['age'] = document.getElementById("aniage").value
@@ -42,11 +44,4 @@ function register(){
             $("#registration_done").modal('show');
         }});
 }
-function setAnimal(animtype){
-    document.getElementById("animtypedrop").firstChild.data = animtype
-    data['type'] = animtype
-    if(marker != undefined){
-        marker.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + animtype  +".svg"}))
-    }
-}
-function markerclick(e) {console.log(e)}
+*/

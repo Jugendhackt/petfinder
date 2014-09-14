@@ -22,7 +22,7 @@ class _401(exc.HTTPError):
         self.status = 401
         self.content_type = 'application/json'
 @pets.get()
-def get_users(request):
+def get_pet(request):
     """Returns a list of all pets in a bbox."""
     #if bbox in 
     #import pdb; pdb.set_trace()
@@ -39,8 +39,8 @@ def get_users(request):
 
 
 @pets.post()
-def create_user(request):
-    """Adds a new user."""
+def create_pet(request):
+    """Adds a new pet."""
     #import pdb; pdb.set_trace()
     pet = request.json['pet']
     token = _create_token()
@@ -54,8 +54,8 @@ def create_user(request):
 
 
 @pets.delete()
-def del_user(request):
-    """Removes the user."""
+def del_pet(request):
+    """Removes the pet."""
     docid = request.params['_id']
     token = request.params['token']
     doc = db[docid]
@@ -64,3 +64,26 @@ def del_user(request):
     return {'Goodbye': docid} 
 
 
+petdetail = Service(name='petdetail', path='/pet/{petid}', description="get data for the detail page of a pet")
+
+@petdetail.get()
+def get_pet(request):
+    """Returns the details for the pet with the given id."""
+    petid = request.matchdict['petid']
+    petdoc = db[petid]
+    del petdoc['token']
+    print(db[petid])
+    return(petdoc)
+    #_PETS.keys()}
+
+petdelete = Service(name='petdelete', path='/petdelete', description="delete a pet")
+
+@petdelete.get()
+def del_pet(request):
+    """Removes the pet."""
+    docid = request.params['_id']
+    token = request.params['token']
+    doc = db[docid]
+    if doc['token'] == token:
+        del doc
+    return 'Goodbye, ' + docid

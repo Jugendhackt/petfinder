@@ -117,3 +117,15 @@ a, div, form {
 	background-image: url(triangular.png);
 	background-repeat: repeat;	
 	}
+#detaillist {
+	height: 45em;
+	margin-bottom: 3em;	
+	width: auto;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+	padding-top: 3em;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	background-image: url(triangular.png);
+	background-repeat: repeat;	
+	}

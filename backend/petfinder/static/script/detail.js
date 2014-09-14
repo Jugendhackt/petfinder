@@ -1,4 +1,5 @@
 var data = {}
+var marker;
 var map = L.map('map');
 console.log(map)
 var url = 'http://{s}.tiles.mapbox.com/v3/pajowu.jg9he75o/{z}/{x}/{y}.png';
@@ -8,10 +9,31 @@ var tileLayer = new L.TileLayer(url, {
   attribution: copyright
 });
 $("#registration_done").modal('hide');
-var marker;
 var startPosition = new L.LatLng(52.5306525,13.4135768);
 map.setView(startPosition, 15)
 .addLayer(tileLayer);
+var petid = window.location.hash.split("#")[1]
+$.ajax({
+        type: 'GET',
+        url: '/pet/' + petid,
+        success: function(data) {
+            
+            console.log(data);
+            document.getElementById("animtype").innerHTML = data.type;
+            document.getElementById("animname").innerHTML = data.name;
+            document.getElementById("animage").innerHTML = data.age;
+            document.getElementById("animatt").innerHTML = data.attributes;
+        marker = L.marker([data.lastseen[1],data.lastseen[0],]).addTo(map);
+            marker.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + data['type']  +".svg"}));
+            console.log(marker)
+            /*
+            $("animtype").html(data['type']);
+            $("animname").text(data.name);
+            $("animage").text(data.age);
+            console.log($("animatt").text(data.attributes));
+            */
+            console.log("updated page")
+        }});
 /*
 map.on('click', function(e) {        
     var clickLoc= e.latlng;

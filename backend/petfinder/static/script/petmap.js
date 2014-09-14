@@ -55,8 +55,12 @@ function parseResponsePets(data) {
     L.geoJson(data, {
       onEachFeature: function (feature, layer) {
         console.log(feature)
-
-        layer.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + feature.properties.type  +".svg"}))
+        animals = ["Katze","Hund","Vogel","Hase"]
+        type = feature.properties.type;
+        if(not type in animals) {
+          type = "undef"
+        }
+        layer.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + type  +".svg"}))
         //layer.bindPopup("<p><img width=100% src='" + feature.value.image + "'>" + feature.value.title + "<a href=https://ingress.com/intel?ll=" + feature.value.latE6/1E6 + "," + feature.value.lngE6/1E6 + "&z=17&pll=" + feature.value.latE6/1E6 + "," + feature.value.lngE6/1E6 +">Open Portal on Intel</a></p>");
         popupsting = "<p>Name: " + feature.properties.name + "</p>";
         if('type' in feature.properties){

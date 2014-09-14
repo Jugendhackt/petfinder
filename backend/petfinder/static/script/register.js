@@ -37,7 +37,7 @@ function register(){
         data: JSON.stringify({"pet":data}),
         success: function(data) {
             console.log(data);
-            qrlink = "https://chart.googleapis.com/chart?cht=qr&chs=547x547&chl=http://petfinder.pajowu.de/static/pet.html%23" + data['id']
+            qrlink = "https://chart.googleapis.com/chart?cht=qr&chs=547x547&chl=http://petfinder.pajowu.de/static/detail.html%23" + data['id']
             $("#modal-body").html("<a href='http://petfinder.pajowu.de/petdelete?_id=" + data['id'] +"&token=" + data['token'] + "'>Über diesen Link können sie ihr Haustier aus der Datenbank löschen.</a><p>Diesen QR-Code können sie nun ausdrucken und an ihrem Haustier befestigen, er führt direkt zur Detail-Page ihres Haustieres:<img src='" + qrlink + "'>");
             $("#registration_done").modal('show');
         }});

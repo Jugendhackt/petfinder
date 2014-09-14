@@ -93,4 +93,4 @@ from pyramid.httpexceptions import HTTPFound
 redirectstatic = Service(name='redirectstatic', path='/', description="redirect to static")
 @redirectstatic.get()
 def redirecttostatic(request):
-    return HTTPFound(location='/static/')
+    return HTTPFound(location='http://petfinder.pajowu.de/static/')

@@ -7,9 +7,24 @@ var tileLayer = new L.TileLayer(url, {
   maxZoom: 20,
   attribution: copyright
 });
+var marker;
 var startPosition = new L.LatLng(52.5306525,13.4135768);
 map.setView(startPosition, 15)
 .addLayer(tileLayer);
+map.on('click', function(e) {        
+    var clickLoc= e.latlng;
+    data['lastseen'] = []
+    data['lastseen'][0] = clickLoc['lng'];
+    data['lastseen'][1] = clickLoc['lat'];
+    if (marker == undefined){
+        marker = L.marker(clickLoc).addTo(map);
+        if("type" in data){
+            marker.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + data['type']  +".svg"}));
+        }
+    } else {
+        marker.setLatLng(clickLoc).update()
+    }
+    });
 function register(){
     data['name'] = document.getElementById("aniname").value
     data['age'] = document.getElementById("aniage").value
@@ -27,5 +42,8 @@ function register(){
 function setAnimal(animtype){
     document.getElementById("animtypedrop").firstChild.data = animtype
     data['type'] = animtype
+    if(marker != undefined){
+        marker.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + animtype  +".svg"}))
+    }
 }
-function onClick(e) {alert(this.getLatLng());}
+function markerclick(e) {console.log(e)}

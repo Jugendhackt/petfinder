@@ -59,36 +59,36 @@ function parseResponsePets(data) {
         type = feature.properties.type;
         if(feature.properties.type == undefined){
           layer.setIcon(L.icon({iconUrl: "http://cdn.leafletjs.com/leaflet-0.7/images/marker-icon.png"}))
-       } else {
-        layer.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + type  +".svg"}))
-       }
+        } else {
+          layer.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + type  +".svg"}))
+        }
         
         //layer.bindPopup("<p><img width=100% src='" + feature.value.image + "'>" + feature.value.title + "<a href=https://ingress.com/intel?ll=" + feature.value.latE6/1E6 + "," + feature.value.lngE6/1E6 + "&z=17&pll=" + feature.value.latE6/1E6 + "," + feature.value.lngE6/1E6 +">Open Portal on Intel</a></p>");
         popupsting = "<p>Name: " + feature.properties.name + "</p>";
-        if('type' in feature.properties){
-          popupsting += "<p>Tierart: " + feature.properties.type + "</p>"
-        }
-        if('age' in feature.properties){
-          popupsting += "<p>Alter: " + feature.properties.age + "</p>"
-        }
-        if('attributes' in feature.properties){
-          popupsting += "<p>Besondere Eigenschaften: " + feature.properties.attributes + "</p>"
-        }
+        
+        popupsting += "<p>Tierart: " + feature.properties.type + "</p>"
+        
+        
+        popupsting += "<p>Alter: " + feature.properties.age + "</p>"
+        
+        
+        popupsting += "<p>Besondere Eigenschaften: " + feature.properties.attributes + "</p>"
+        
         layer.bindPopup(popupsting)
-        }
-      })
-    .addTo(map);
-  }
+      }
+    })
+.addTo(map);
+}
 
-  function createGeoJsonLayer() {
-    var layer = new L.GeoJSON();
-    layer.on('featureparse', function(e) {
-      e.layer.setStyle({
-        color: '#003300',
-        weight: 2,
-        fill: true,
-        fillColor: '#009933'
-      });
+function createGeoJsonLayer() {
+  var layer = new L.GeoJSON();
+  layer.on('featureparse', function(e) {
+    e.layer.setStyle({
+      color: '#003300',
+      weight: 2,
+      fill: true,
+      fillColor: '#009933'
     });
-    return layer;
-  }
+  });
+  return layer;
+}

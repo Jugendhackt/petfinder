@@ -87,3 +87,10 @@ def del_pet(request):
     if doc['token'] == token:
         del doc
     return 'Goodbye, ' + docid
+
+
+from pyramid.httpexceptions import HTTPFound
+redirectstatic = Service(name='redirectstatic', path='/', description="redirect to static")
+@redirectstatic.get()
+def redirecttostatic(request):
+    return HTTPFound(location='/static/')

@@ -18,7 +18,7 @@
 </style>
 </head> 
 <body>
-<div class="bs-example">
+<div class="bs-example" id="navbar">
     <nav role="navigation" class="navbar navbar-default">
         <div class="navbar-header">
             <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
@@ -50,5 +50,8 @@
 
 <div id="map"></div>
 <script src="script/petmap.js"></script>
+<script type="text/javascript">
+$("#map").height($("#map").height() - $("#map").offset().top - 40)
+</script>
 </body>
 </html>                                		

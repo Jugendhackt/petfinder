@@ -16,6 +16,11 @@ map.setView(startPosition, 15)
 map.on('moveend', function(e) {
   requestUpdatedPets(e.target.getBounds());
 });
+/*
+    console.log($("#map").height);
+    console.log($(document).height());
+    console.log($("#map").offset().top);*/
+    
 function requestUpdatedPets(bounds) {
   $.ajax({
     type: 'GET',

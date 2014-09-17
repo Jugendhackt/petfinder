@@ -1,4 +1,3 @@
-
 a, div, form {
 	font-family: Ubuntu;
 	border-radius: 5px;
@@ -106,7 +105,7 @@ a, div, form {
 	margin-top: -45%;
 }
 #map {
-	height: 45em;
+	height: 100vmin;
 	margin-bottom: 3em;	
 	width: auto;
 	margin-left: 1.5em;
@@ -117,6 +116,7 @@ a, div, form {
 	background-image: url(triangular.png);
 	background-repeat: repeat;	
 	}
+
 #detaillist {
 	height: 45em;
 	margin-bottom: 3em;	

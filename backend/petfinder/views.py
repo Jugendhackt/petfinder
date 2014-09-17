@@ -26,15 +26,27 @@ def get_pet(request):
     """Returns a list of all pets in a bbox."""
     #if bbox in 
     #import pdb; pdb.set_trace()
-    bbox = request.params['bbox']
-    featurecoll = []
-    for pet in db.view("_design/search/_spatial/points", bbox=bbox):
-        #print(i)
-        point = Point((pet['value']['lastseen'][0],pet['value']['lastseen'][1]))
-        del pet['value']['token']
-        feature = Feature(geometry=point,properties=pet['value'])
-        featurecoll.append(feature)
-    return FeatureCollection(featurecoll)
+    try:
+        bbox = request.params['bbox']
+        featurecoll = []
+        for pet in db.view("_design/search/_spatial/points", bbox=bbox):
+            #print(i)
+            point = Point((pet['value']['lastseen'][0],pet['value']['lastseen'][1]))
+            del pet['value']['token']
+            feature = Feature(geometry=point,properties=pet['value'])
+            featurecoll.append(feature)
+        return FeatureCollection(featurecoll)
+    except:
+        print("except")
+        bbox = request.params['bbox']
+        featurecoll = []
+        for pet in db.view("_design/search/_spatial/points", bbox=bbox):
+            #print(i)
+            point = Point((pet['value']['lastseen'][0],pet['value']['lastseen'][1]))
+            del pet['value']['token']
+            feature = Feature(geometry=point,properties=pet['value'])
+            featurecoll.append(feature)
+        return FeatureCollection(featurecoll)
     #_PETS.keys()}
 
 

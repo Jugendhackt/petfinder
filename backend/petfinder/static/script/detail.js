@@ -23,6 +23,8 @@ $.ajax({
             document.getElementById("animname").innerHTML = data.name;
             document.getElementById("animage").innerHTML = data.age;
             document.getElementById("animatt").innerHTML = data.attributes;
+            if (data.address !== undefined)
+            document.getElementById("aniaddr").innerHTML = data.address;
         marker = L.marker([data.lastseen[1],data.lastseen[0],]).addTo(map);
             marker.setIcon(L.icon({iconSize: [48,48],iconAnchor: [24,48],popupAnchor:[0,-48],iconUrl: "images/" + data['type']  +".svg"}));
             console.log(marker)

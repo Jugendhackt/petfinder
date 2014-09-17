@@ -30,6 +30,8 @@ function register(){
     data['name'] = document.getElementById("aniname").value
     data['age'] = document.getElementById("aniage").value
     data['attributes'] = document.getElementById("aniatt").value
+    
+    data['address'] = document.getElementById("aniaddr").value
     console.log(data)
     $.ajax({
         type: 'POST',
